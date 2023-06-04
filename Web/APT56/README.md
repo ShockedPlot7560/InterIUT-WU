@@ -36,7 +36,9 @@ On peut tenter de venir récupérer le contenu du ``flag.txt`` directement en es
 
 Y'a une partie du site qu'on a pas toucher: l'upload de fichier. Après quelque test, on se rend vite compte qu'il est vulnérable aux upload de code, donc RCE. Il vous suffisait de placer un préfixe genre de GIF, enchaîner sur votre PHP et l'uploader en modifiant le content-type et le nom pour qu'il finisse par .gif. 
 
-Le fichier est ensuite accessible sous ``uploads/<nom>.gif`` et on peut voir que le PHP est bien exécuté.
+On peut voir dans la source de l'index un include accessible que avcec certaines conditions. Lors de l'édition du cookie, il nous suffisait de modifier le mot de passe par ``500000``en tant qu'entier.  
+
+Ainsi, il suffisait ensuite avec le paramètre ``testphpcode`` dans l'url de spécifier le chemin vers notre fichier pour l'inclure dans la page et que le code PHP soit exécuté.
 
 Pour faciliter la suite, j'ai utilisé un reverse sheel qui vient se connecter à mon PC pour avoir un shell intéractif : https://pentestmonkey.net/tools/web-shells/php-reverse-shell.
 Après quelques investigations on remarque que seul la commande nl peutêtre exécuté sur le flag, et donc avec ``sudo -u root /usr/bin/nl /flag.txt`` on obtient le dernier flag de cette série hyper intéressante.
