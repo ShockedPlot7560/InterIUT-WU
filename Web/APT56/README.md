@@ -23,8 +23,10 @@ echo "New cookie is: " . urlencode(base64_encode(serialize($unserialize)));
 
 # APT56 2/3
 
-N'ayant plus le site en mémoire et vu qu'ils ne sont plus en ligne, je vais faire avec ce que je me rappel des payload.
-Le but de celui ci était de récupérer le contenu de ``index.php``, le flag était commenté en PHP dedans.
+N'ayant plus le site en mémoire et vu qu'ils ne sont plus en ligne, je vais faire avec ce que je me rappel des payload.  
+
+Le but de celui ci était de récupérer le contenu de ``index.php``, le flag était commenté en PHP dedans.   
+
 La partie du site qui nous intéressait là était le finder, disponible uniquement en admin à l'adresse ``/finder.php``. Nous spécifions un chemin vers le fichier à lire et il nous était retourné une image en base64. Un simple index.php (de mémoire), nous retournais le contenu du fichier en base64, plus qu'à le décoder et à le lire.
 
 # APT56 3/3
